@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Demo One</title>
+    <link href="../../content/bootstrap.css" rel="stylesheet" />
+    <link href="../../content/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="../../content/toastr.css" rel="stylesheet" />
+    <link href="../../content/site.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row-fluid">
+            <h1 class="span12 well">Demo One</h1>
+        </div>
+        <div class="row-fluid">
+            <div class="span4 well">
+                <h3>Results</h3>
+                <strong>Name: </strong><span data-bind="text: fullName"></span><br />
+                <strong>Twitter: </strong><span data-bind="text: twitterHandle"></span><br />
+                <strong>Email: </strong><span data-bind="text: emailAddress"></span>
+            </div>
+            <div class="span8 well">
+                <h3>Change Info</h3>
+                <strong>First Name: </strong><input type="text" data-bind="value: firstName, valueUpdate: 'afterkeydown'" /><br />
+                <strong>Last Name: </strong><input type="text" data-bind="value: lastName, valueUpdate: 'afterkeydown'" /><br />
+                <button class="btn btn-primary" data-bind="click: checkValues, clickBubble: false">Check Values</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../scripts/jquery-2.0.3.js"></script>
+    <script src="../../scripts/knockout-2.3.0.debug.js"></script>
+    <script src="../../scripts/toastr.js"></script>
+    <script src="site.js"></script>
+</body>
+</html>
