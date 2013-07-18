@@ -39,11 +39,7 @@ var myJS = (function (myJS, $) {
             return self.firstName() + ' ' + self.lastName();
         });
 
-        self.checkValues = function () {
-            // Shows the value of the name properties
-            toastr.info(self.firstName(), "First Name");
-            toastr.info(self.lastName(), "Last Name");
-
+        self.addPet = function () {
             // Adds new pet to the observable array
             self.pets.push({ animalType: 'rat', name: 'Lawrence', age: 1, petImage: '../../content/images/rat.png' });
         };
