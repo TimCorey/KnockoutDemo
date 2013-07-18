@@ -1,1 +1,24 @@
-﻿
+﻿.pet
+{
+    display: inline-block;
+    border: 1px solid black;
+    padding: 15px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+}
+.petImage
+{
+    height: 192px;
+    width: 192px;
+    margin-bottom: 10px;
+}
+.petLabel
+{
+    background-color: lightgrey;
+    padding: 5px;
+}
+.petName
+{
+    font-size: 2em;
+    font-weight: bold;
+}

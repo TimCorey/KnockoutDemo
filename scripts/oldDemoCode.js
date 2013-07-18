@@ -82,8 +82,7 @@ var BudgetItem = function (name, monthlyAmount, income, context) {
 function ShoppingCart(data) {
     var self = this;
 
-    //Testing observable array mapping
-    var mapping = {
+    var mappingDirectives = {
         'Items': {
             create: function (options) {
                 return new CartItem(options.data.Quantity, options.data.Name, options.data.Taxable, options.data.Price);
@@ -91,8 +90,7 @@ function ShoppingCart(data) {
         }
     }
 
-
-    ko.mapping.fromJS(data, mapping, self);
+    ko.mapping.fromJS(data, mappingDirectives, self);
 
     self.removeItem = function (cartitem) {
         self.Items.remove(cartitem);
