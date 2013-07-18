@@ -1,4 +1,6 @@
 ﻿var myJS = (function (myJS, $) {
+
+    // Represents the incoming JSON data - nothing in the cart but three items in inventory
     var data = {
         Items: [],
         InventoryItems: [{
@@ -19,6 +21,7 @@
         }]
     };
     
+
     myJS.vm = function() {
         var self = this;
 
@@ -26,6 +29,11 @@
             'Items': {
                 create: function (options) {
                     return new myJS.CartItem(options.data.Quantity, options.data.Name, options.data.Taxable, options.data.Price);
+                }
+            },
+            'InventoryItems': {
+                key: function (data) {
+                    return ko.unwrap(data.Name);
                 }
             }
         }
@@ -107,6 +115,38 @@
 
         self.clearCart = function () {
             self.Items.removeAll();
+        };
+
+        self.refreshInventory = function () {
+            data = data = {
+                InventoryItems: [{
+                    Name: 'Soccer Ball',
+                    Price: 150.56,
+                    Quantity: 10,
+                    Taxable: false
+                }, {
+                    Name: 'BasketBall',
+                    Price: 18.50,
+                    Quantity: 15,
+                    Taxable: true
+                }, {
+                    Name: 'FootBall',
+                    Price: 21.95,
+                    Quantity: 10,
+                    Taxable: true
+                }, {
+                    Name: 'Baseball',
+                    Price: 18.50,
+                    Quantity: 15,
+                    Taxable: true
+                }, {
+                    Name: 'Hockey Puck',
+                    Price: 18.50,
+                    Quantity: 15,
+                    Taxable: true
+                }]
+            };
+            ko.mapping.fromJS(data, self.mappingDirectives, self);
         };
     }
 

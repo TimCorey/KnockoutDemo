@@ -19,12 +19,6 @@
     <div class="row-fluid">
         <div class="span4 well">
             <table class="table">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
                 <tbody data-bind="foreach: InventoryItems">
                     <tr>
                         <td data-bind="text: Name" style="border-top-width: 0px;"></td>
@@ -33,6 +27,7 @@
                 </tbody>
             </table>
             <button class="btn btn-mini btn-primary" data-bind="visible: total() > 0, click: clearCart">Clear</button>
+            <button class="btn btn-mini btn-primary" data-bind="click: refreshInventory">Refresh Inventory</button>
         </div>
         <div class="span8">
             <table class="table table-striped">
