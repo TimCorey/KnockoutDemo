@@ -1,17 +1,36 @@
-﻿var myJS = (function(myJS, $) {
-
-    var vm = function(data) {
+﻿var myJS = (function (myJS, $) {
+    var data = {
+        Items: [],
+        InventoryItems: [{
+            Name: 'Soccer Ball',
+            Price: 12.56,
+            Quantity: 10,
+            Taxable: false
+        }, {
+            Name: 'BasketBall',
+            Price: 18.50,
+            Quantity: 15,
+            Taxable: true
+        }, {
+            Name: 'FootBall',
+            Price: 21.95,
+            Quantity: 10,
+            Taxable: true
+        }]
+    };
+    
+    myJS.vm = function() {
         var self = this;
 
-        var mappingDirectives = {
+        self.mappingDirectives = {
             'Items': {
                 create: function (options) {
-                    return new CartItem(options.data.Quantity, options.data.Name, options.data.Taxable, options.data.Price);
+                    return new myJS.CartItem(options.data.Quantity, options.data.Name, options.data.Taxable, options.data.Price);
                 }
             }
         }
 
-        ko.mapping.fromJS(data, mappingDirectives, self);
+        ko.mapping.fromJS(data, self.mappingDirectives, self);
 
         self.removeItem = function (cartitem) {
             self.Items.remove(cartitem);
@@ -27,7 +46,7 @@
             });
 
             if (!found) {
-                var newItem = new CartItem(1, newcartitem.Name(), newcartitem.Taxable(), newcartitem.Price());
+                var newItem = new myJS.CartItem(1, newcartitem.Name(), newcartitem.Taxable(), newcartitem.Price());
                 self.Items.push(newItem);
             }
         };
@@ -91,7 +110,7 @@
         };
     }
 
-    var CartItem = function(quantity, name, taxable, price) {
+    myJS.CartItem = function(quantity, name, taxable, price) {
         this.Quantity = ko.observable(quantity);
         this.Name = ko.observable(name);
         this.Taxable = ko.observable(taxable);
@@ -109,6 +128,11 @@
             return (parseFloat(this.Quantity()) * parseFloat(this.Price()) + parseFloat(this.Tax())).toFixed(2);
         }, this);
     }
+
+    // The Document.Ready jQuery event that fires once the DOM is loaded
+    $(function () {
+        ko.applyBindings(new myJS.vm());
+    });
 
     return myJS;
 }(window.myJS || {}, jQuery));
