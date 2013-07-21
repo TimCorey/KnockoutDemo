@@ -9,12 +9,12 @@
             Quantity: 10,
             Taxable: false
         }, {
-            Name: 'BasketBall',
+            Name: 'Basketball',
             Price: 18.50,
             Quantity: 15,
             Taxable: true
         }, {
-            Name: 'FootBall',
+            Name: 'Football',
             Price: 21.95,
             Quantity: 10,
             Taxable: true
@@ -136,12 +136,12 @@
                     Quantity: 10,
                     Taxable: false
                 }, {
-                    Name: 'BasketBall',
+                    Name: 'Basketball',
                     Price: 18.50,
                     Quantity: 15,
                     Taxable: true
                 }, {
-                    Name: 'FootBall',
+                    Name: 'Football',
                     Price: 21.95,
                     Quantity: 10,
                     Taxable: true

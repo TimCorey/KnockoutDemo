@@ -32,6 +32,7 @@ var myJS = (function (myJS, $) {
         self.lastName = ko.observable('Corey');
         self.twitterHandle = '@IAmTimCorey';
         self.emailAddress = 'me@timothycorey.com';
+
         self.pets = ko.observableArray(pets);
 
         // Computed observable that concatinates the first and last name to form a full name
